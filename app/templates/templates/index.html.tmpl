@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title><%- site.title %></title>
+
+    <meta name="keywords" content="<%- site.keywords %>">
+    <meta name="description" content="<%- site.description %>">
+    <meta name="author" content="<%- site.author %>">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+
+    <!-- Place favicon.ico and apple-touch-icon(s) here -->
+    <!-- <link rel="shortcut icon" type="image/ico" href="<%- paths.staticFiles %>/favicon.ico"/> !-->
+    <!-- <link rel="apple-touch-icon" href="<%- paths.staticFiles %>/apple-touch-icon.png" /> !-->
+    <!-- <link rel="apple-touch-icon" sizes="72x72" href="<%- paths.staticFiles %>/apple-touch-icon-72x72-precomposed.png" /> !-->
+    <!-- <link rel="apple-touch-icon" sizes="114x114" href="<%- paths.staticFiles %>/apple-touch-icon-114x114-precomposed.png" /> !-->
+    <!-- <link rel="apple-touch-icon" sizes="144x144" href="<%- paths.staticFiles %>/apple-touch-icon-144x144-precomposed.png" /> !-->
+
+    <!-- Place your styles here -->
+    <!-- <link rel="stylesheet" type="text/css" href="<%- paths.staticFiles %>/img/styles.css" media="all"/> !-->
+</head>
+<body lang="en">
+
+    <span id="container"></span>
+
+    <script>
+        var application = <%= settings %>;
+    </script>
+
+    <% if(target == 'development') { %>
+        <script src='<%- paths.root %>/../app/settings.js?v=<%- version %>'></script>
+        <script data-main='<%- paths.root %>/../app/bootstrap.js' src="<%- paths.root %>/../bower_components/requirejs/require.js?v=<%- version %>"></script>
+    <% } else { %>
+        <script src='<%- paths.staticFiles %>/javascript/build.min.js'></script>
+    <% } %>
+
+</body>
+</html>

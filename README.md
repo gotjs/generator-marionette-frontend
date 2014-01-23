@@ -1,2 +1,2 @@
-yeoman-marionette
-=================
+generator-opus
+==============

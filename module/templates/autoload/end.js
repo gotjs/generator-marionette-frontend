@@ -1,0 +1,6 @@
+
+
+    app.trigger('modules:loaded');
+
+});
+

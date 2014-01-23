@@ -1,0 +1,6 @@
+
+
+    app.trigger('plugins:loaded');
+
+});
+
