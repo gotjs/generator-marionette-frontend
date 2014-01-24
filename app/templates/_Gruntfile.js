@@ -84,6 +84,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('development', ['buildTemplates']);
     grunt.registerTask('staging', ['copy', 'cssmin', 'requirejs', 'buildTemplates']);
+    grunt.registerTask('default', ['build', 'connect']);
 
     grunt.registerTask('buildTemplates', 'Builds templates site', function () {
 
@@ -93,7 +94,7 @@ module.exports = function (grunt) {
         var data = grunt.util._.merge(
             nconf.get('browser'), {
                 target : target,
-                version : grunt.option('tag'),
+                version : grunt.config('tag'),
                 settings : JSON.stringify(nconf.get('browser'))
             }
         );

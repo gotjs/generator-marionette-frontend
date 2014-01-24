@@ -16,22 +16,19 @@ var OpusGenerator = module.exports = function OpusGenerator(args, options, confi
 util.inherits(OpusGenerator, yeoman.generators.Base);
 
 OpusGenerator.prototype.askFor = function askFor() {
-    this.applicationName = 'e';
-//    var cb = this.async();
-//
-//    var prompts = [
-//        {
-//            name: 'applicationName',
-//            message: 'What do you want to call your application?'
-//        }
-//    ];
-//
-//    this.prompt(prompts, function (props) {
-//        this.applicationName = props.applicationName;
-//
-//
-//        cb();
-//    }.bind(this));
+    var cb = this.async();
+
+    var prompts = [
+        {
+            name: 'applicationName',
+            message: 'What do you want to call your application?'
+        }
+    ];
+
+    this.prompt(prompts, function (props) {
+        this.applicationName = props.applicationName;
+        cb();
+    }.bind(this));
 };
 
 OpusGenerator.prototype.app = function app() {

@@ -19,10 +19,17 @@ define(function (require) {
         },
         controller : {
             index : function () {
-                controller.index();
-                app.navigate('<%- module %>');
+                app.execute('navigate:<%- module %>');
             }
         }
+    });
+
+    /**
+     * Commands
+     */
+    app.commands.setHandler('navigate:<%- module %>', function () {
+        controller.index();
+        app.navigate('<%- module %>');
     });
 
     return {

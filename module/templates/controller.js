@@ -2,15 +2,15 @@ define(function (require) {
     'use strict';
 
     var app = require('app');
+    var IndexView = require('./views/index');
 
     var controller = {
         index : function () {
-
-            app.addInitializer(function () {
-                console.log('Application initialized');
+            var view = new IndexView({
+                template : require('text!./templates/index.hbs'),
+                message : 'Welcome to the module <%- module %>'
             });
-            console.log('At the index of the module <%= module %>');
-
+            app.container.show(view);
         }
     };
 
