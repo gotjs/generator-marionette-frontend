@@ -14,6 +14,12 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
+        bower: {
+            target: {
+                rjsConfig: 'app/settings.js'
+            }
+        },
+
         jshint: {
             all    : ['app/**/*.js', '!app/settings.js', '!bower_components'],
             options: {
