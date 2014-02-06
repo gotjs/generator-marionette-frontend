@@ -38,9 +38,6 @@ OpusGenerator.prototype.app = function app() {
     this.mkdir('app/utils');
     this.mkdir('app/autoload');
 
-    /**
-     *
-     */
     this.copy('app/_app.js', 'app/app.js');
     this.copy('app/_bootstrap.js', 'app/bootstrap.js');
     this.copy('app/_vendors.js', 'app/vendors.js');
@@ -53,8 +50,13 @@ OpusGenerator.prototype.projectFiles = function projectFiles() {
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
-    this.copy('_Gruntfile.js', 'Gruntfile.js');
     this.copy('jshintrc', '.jshintrc');
+
+};
+
+OpusGenerator.prototype.grunt = function projectFiles() {
+    this.copy('_Gruntfile.js', 'Gruntfile.js');
+    this.directory('tasks', 'tasks');
 
 };
 
@@ -63,6 +65,7 @@ OpusGenerator.prototype.config = function config() {
     this.mkdir('config');
     this.template('config/config.json', 'config/config.json');
     this.copy('config/environment.json', 'config/environment.json');
+    this.copy('config/staging.json', 'config/staging.json');
 
 };
 
