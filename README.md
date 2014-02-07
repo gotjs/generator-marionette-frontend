@@ -30,3 +30,9 @@ yo opus:plugin
 ```
 yo opus:module
 ```
+
+### Want to see how your site looks like in production?
+```
+grunt --target=staging
+```
+
