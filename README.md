@@ -35,4 +35,6 @@ yo opus:module
 ```
 grunt --target=staging
 ```
+> Now go to http://localhost:9001/staging/
+
 
