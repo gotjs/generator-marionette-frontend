@@ -1,6 +1,13 @@
 generator-opus
 ==============
 
+### Requierments
+
+1. Node installed
+2. Yeoman installed (http://yeoman.io/)
+3. Grunt installed (http://gruntjs.com/)
+4. Bower installed (http://bower.io/)
+
 ### Setup
 
 ```
