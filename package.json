@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A frontend generator for building large scale single page applications using Marionette, RequireJS, Handlebars",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator", "marionette", "backbone", "underscore", "jquery", "handlebars", "when"
   ],
   "homepage": "https://github.com/opus-online/generator-marionette-frontend",
   "bugs": "https://github.com/opus-online/generator-marionette-frontend/issues",

@@ -3,7 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-var OpusGenerator = module.exports = function OpusGenerator(args, options, config) {
+var MarionetteFrontendGenerator = module.exports = function MarionetteFrontendGenerator(args, options, config) {
     yeoman.generators.Base.apply(this, arguments);
 
     this.on('end', function () {
@@ -13,9 +13,9 @@ var OpusGenerator = module.exports = function OpusGenerator(args, options, confi
     this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 
 };
-util.inherits(OpusGenerator, yeoman.generators.Base);
+util.inherits(MarionetteFrontendGenerator, yeoman.generators.Base);
 
-OpusGenerator.prototype.askFor = function askFor() {
+MarionetteFrontendGenerator.prototype.askFor = function askFor() {
     var cb = this.async();
 
     var prompts = [
@@ -31,7 +31,7 @@ OpusGenerator.prototype.askFor = function askFor() {
     }.bind(this));
 };
 
-OpusGenerator.prototype.app = function app() {
+MarionetteFrontendGenerator.prototype.app = function app() {
 
     this.mkdir('app');
     this.mkdir('app/components');
@@ -47,7 +47,7 @@ OpusGenerator.prototype.app = function app() {
 
 };
 
-OpusGenerator.prototype.projectFiles = function projectFiles() {
+MarionetteFrontendGenerator.prototype.projectFiles = function projectFiles() {
 
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
@@ -55,13 +55,13 @@ OpusGenerator.prototype.projectFiles = function projectFiles() {
 
 };
 
-OpusGenerator.prototype.grunt = function projectFiles() {
+MarionetteFrontendGenerator.prototype.grunt = function projectFiles() {
     this.copy('_Gruntfile.js', 'Gruntfile.js');
     this.directory('tasks', 'tasks');
 
 };
 
-OpusGenerator.prototype.config = function config() {
+MarionetteFrontendGenerator.prototype.config = function config() {
 
     this.mkdir('config');
     this.template('config/config.json', 'config/config.json');
@@ -70,37 +70,37 @@ OpusGenerator.prototype.config = function config() {
 
 };
 
-OpusGenerator.prototype.templates = function templates() {
+MarionetteFrontendGenerator.prototype.templates = function templates() {
 
     this.mkdir('templates');
     this.copy('templates/index.html.tmpl', 'templates/index.html.tmpl');
 
 };
 
-OpusGenerator.prototype.plugins = function plugins() {
+MarionetteFrontendGenerator.prototype.plugins = function plugins() {
 
     var cb = this.async();
 
     this.mkdir('app/plugins');
-    this.invoke('opus:plugin', { options: { plugin : 'logger', predefined: true, autoload : false }}, function () {
-        this.invoke('opus:plugin', { options: { plugin : 'navigate', predefined : true, autoload : true }}, cb);
+    this.invoke('marionette-frontend:plugin', { options: { plugin : 'logger', predefined: true, autoload : false }}, function () {
+        this.invoke('marionette-frontend:plugin', { options: { plugin : 'navigate', predefined : true, autoload : true }}, cb);
     }.bind(this));
 };
 
-OpusGenerator.prototype.modules = function plugins() {
+MarionetteFrontendGenerator.prototype.modules = function plugins() {
 
     var cb = this.async();
 
     this.mkdir('app/modules');
 
-    this.invoke('opus:module', { options: { module : 'home', autoload : true}}, function () {
-        this.invoke('opus:module', { options: { module : 'auth', predefined : true, autoload : true }}, cb);
+    this.invoke('marionette-frontend:module', { options: { module : 'home', autoload : true}}, function () {
+        this.invoke('marionette-frontend:module', { options: { module : 'auth', predefined : true, autoload : true }}, cb);
     }.bind(this));
 };
 
 
 
-OpusGenerator.prototype.staticFiles = function staticFiles() {
+MarionetteFrontendGenerator.prototype.staticFiles = function staticFiles() {
 
     this.mkdir('static_files');
     this.mkdir('static_files/img');
