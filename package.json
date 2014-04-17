@@ -1,21 +1,21 @@
 {
-  "name": "generator-opus",
+  "name": "generator-marioentte-frontend",
   "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "description": "A frontend generator for building large scale single page applications using Marionette, RequireJS, Handlebars",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/peeter-tomberg/generator-opus",
-  "bugs": "https://github.com/peeter-tomberg/generator-opus/issues",
+  "homepage": "https://github.com/opus-online/generator-marionette-frontend",
+  "bugs": "https://github.com/opus-online/generator-marionette-frontend/issues",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Peeter Tomberg",
+    "email": "peeter.tomberg@gmail.com",
     "url": "https://github.com/peeter-tomberg"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/peeter-tomberg/generator-opus.git"
+    "url": "git://github.com/opus-online/generator-marionette-frontend.git"
   },
   "scripts": {
     "test": "mocha"
