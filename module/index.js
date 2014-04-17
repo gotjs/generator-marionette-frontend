@@ -9,6 +9,7 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
 
     yeoman.generators.Base.apply(this, arguments);
 
+    this.predefined = options.predefined;
     this.module = options.module;
     this.autoload = options.autoload;
 
@@ -46,18 +47,26 @@ ModuleGenerator.prototype.askFor = function askFor() {
 };
 
 ModuleGenerator.prototype.generateModule = function generateModule() {
-    this.mkdir('app/modules/' + this.module);
 
-    this.template('module.js', 'app/modules/' + this.module + '/' + this.module + 'Module.js');
-    this.copy('controller.js', 'app/modules/' + this.module + '/controller.js');
-    this.copy('helpers.js', 'app/modules/' + this.module + '/helpers.js');
-    this.copy('entities.js', 'app/modules/' + this.module + '/entities.js');
+    if (!this.predefined) {
+        this.mkdir('app/modules/' + this.module);
 
-    this.mkdir('app/modules/' + this.module + '/templates');
-    this.copy('templates/index.hbs', 'app/modules/' + this.module + '/templates/index.hbs');
+        this.template('module.js', 'app/modules/' + this.module + '/' + this.module + 'Module.js');
+        this.copy('controller.js', 'app/modules/' + this.module + '/controller.js');
+        this.copy('helpers.js', 'app/modules/' + this.module + '/helpers.js');
+        this.copy('entities.js', 'app/modules/' + this.module + '/entities.js');
 
-    this.mkdir('app/modules/' + this.module + '/views');
-    this.copy('views/index.js', 'app/modules/' + this.module + '/views/index.js');
+        this.mkdir('app/modules/' + this.module + '/templates');
+        this.copy('templates/index.hbs', 'app/modules/' + this.module + '/templates/index.hbs');
+
+        this.mkdir('app/modules/' + this.module + '/views');
+        this.copy('views/index.js', 'app/modules/' + this.module + '/views/index.js');
+    }
+    else {
+        console.log(this.module, 'predefined/' + this.module, 'app/modules/' + this.module);
+        this.directory('predefined/' + this.module, 'app/modules/' + this.module);
+    }
+
 
 
 };

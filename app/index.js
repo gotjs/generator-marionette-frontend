@@ -43,6 +43,7 @@ OpusGenerator.prototype.app = function app() {
     this.copy('app/_vendors.js', 'app/vendors.js');
     this.copy('app/_configuration.js', 'app/configuration.js');
     this.copy('app/_settings.js', 'app/settings.js');
+    this.copy('app/_entities.js', 'app/entities.js');
 
 };
 
@@ -92,7 +93,9 @@ OpusGenerator.prototype.modules = function plugins() {
 
     this.mkdir('app/modules');
 
-    this.invoke('opus:module', { options: { module : 'home', autoload : true}}, cb);
+    this.invoke('opus:module', { options: { module : 'home', autoload : true}}, function () {
+        this.invoke('opus:module', { options: { module : 'auth', predefined : true, autoload : true }}, cb);
+    }.bind(this));
 };
 
 

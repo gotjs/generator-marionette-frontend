@@ -1,19 +1,53 @@
 define(function (require) {
-	'use strict';
+    'use strict';
 
     var Backbone = require('backbone');
-	var Marionette = require('marionette');
+    var Marionette = require('marionette');
+    var when = require('when/when');
+
+    var entities = require('entities');
+
     /**
      * @type {Marionette.Application}
      */
-	var app = new Marionette.Application();
+    var app = new Marionette.Application();
 
     app.addRegions({ 'container' : '#container' });
 
+    app.reqres.setHandler('bootstrap', function () {
+
+        var defer = when.defer();
+
+        entities
+            .getBootstrapData()
+            .then(
+            function (data) {
+                app.bootstrap = data;
+                defer.resolve(data);
+            },
+            defer.reject
+        );
+
+        return defer.promise;
+    });
+
     app.on('initialize:after', function () {
-        if (!Backbone.history.start()) {
-            app.execute('navigate:home');
-        }
+
+        app.request('bootstrap')
+            .then(
+            function (bootstrap) {
+                if (!Backbone.history.start()) {
+                    if (bootstrap.authorized) {
+                        app.execute('navigate:home');
+                    }
+                    else {
+                        app.execute('navigate:auth:login');
+                    }
+                }
+            },
+            app.logger.error
+        );
+
     });
 
     return app;
