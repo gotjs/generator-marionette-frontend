@@ -35,19 +35,13 @@ define(function (require) {
 
         app.request('bootstrap')
             .then(
-            function (bootstrap) {
+            function () {
                 if (!Backbone.history.start()) {
-                    if (bootstrap.authorized) {
-                        app.execute('navigate:home');
-                    }
-                    else {
-                        app.execute('navigate:auth:login');
-                    }
+                    Backbone.history.navigate('home', { trigger : true });
                 }
-            },
-            app.logger.error
-        );
-
+            }
+        )
+            .catch(app.logger.exception);
     });
 
     return app;

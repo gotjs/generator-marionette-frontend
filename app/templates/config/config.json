@@ -1,17 +1,7 @@
 {
     "browser" : {
-        "paths": {
-            "staticFiles": "http://localhost:9001/static_files"
-        },
-        "site": {
-            "title": "<%- applicationName %>",
-            "name": "Opus",
-            "description": "Opus",
-            "keywords": "Opus"
+        "site" : {
+            "title": "<%- applicationName %>"
         }
-    },
-    "server" : {
-
     }
-
 }

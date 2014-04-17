@@ -1,11 +1,14 @@
 define(function (require) {
     'use strict';
 
+    var Backbone = require('backbone');
+
     var app = require('app');
     var IndexView = require('./views/login');
 
     var controller = {
-        login : function () {
+        login : function (path) {
+
             var view = new IndexView({
                 template : require('text!./templates/login.hbs')
             });
@@ -15,7 +18,7 @@ define(function (require) {
                     app
                         .request('bootstrap')
                         .then(function () {
-                            app.execute('navigate:home');
+                            Backbone.history.navigate(path, { trigger : true });
                         },
                         app.logger.error
                     );

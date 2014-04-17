@@ -20,6 +20,9 @@ define(function () {
             error : function () {
                 console.error.apply(console, arguments);
             },
+            exception : function (exception) {
+                console.error(exception, exception.stack);
+            },
             log : function () {
                 console.log.apply(console, arguments);
             }

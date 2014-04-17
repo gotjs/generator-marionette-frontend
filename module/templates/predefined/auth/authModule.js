@@ -47,17 +47,31 @@ define(function (require) {
         protected : false,
 
         appRoutes: {
-            'auth/login' : 'login'
+            'auth/login' : 'login',
+            'auth/login/redirect/:path' : 'redirect'
         },
-        controller : controller
+        controller : {
+            'login' : function () {
+                controller.login(decodeURIComponent('home'));
+            },
+            'redirect' : function (path) {
+                controller.login(decodeURIComponent(path));
+            }
+        }
     });
 
     /**
      * Commands
      */
-    app.commands.setHandler('navigate:auth:login', function () {
-        app.navigate('auth/login');
-        controller.login();
+    app.commands.setHandler('navigate:auth:login', function (path) {
+        path = path || Backbone.history.getFragment();
+        app.navigate('auth/login/redirect/' + encodeURIComponent(path));
+        controller.login(path);
+    });
+
+    app.commands.setHandler('auth:logout', function () {
+        localStorage.setItem('authorized', false);
+        window.location.reload();
     });
 
     return {

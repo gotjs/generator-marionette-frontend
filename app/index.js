@@ -65,8 +65,8 @@ OpusGenerator.prototype.config = function config() {
 
     this.mkdir('config');
     this.template('config/config.json', 'config/config.json');
-    this.copy('config/environment.json', 'config/environment.json');
-    this.copy('config/staging.json', 'config/staging.json');
+    this.copy('config/development.json', 'config/development.json');
+    this.copy('config/production.json', 'config/production.json');
 
 };
 

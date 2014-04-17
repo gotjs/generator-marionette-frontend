@@ -5,9 +5,6 @@ module.exports = function(grunt) {
     var nconf = require('nconf');
     var path = require('path');
 
-    var DEVELOPMENT = 'development';
-
-
     grunt.registerTask('buildTemplates', 'Builds templates site', function () {
 
         var target = grunt.config('target');
@@ -16,17 +13,12 @@ module.exports = function(grunt) {
         /**
          * Load in target specific configuration file
          */
-        if(target != DEVELOPMENT) {
-            console.log('why we loding this?');
-            nconf.file(target, path.join(__dirname, '..', 'config', target + '.json') );
-        }
-        nconf.file('environment', path.join(__dirname, '..', 'config', 'environment.json') );
+        nconf.file('environment', path.join(__dirname, '..', 'config',  target + '.json'));
         nconf.file(path.join(__dirname, '..', 'config', 'config.json'));
 
         var data = _.merge({},
             nconf.get('browser'), {
                 target : target,
-                version : grunt.config('tag'),
                 settings : JSON.stringify(nconf.get('browser'))
             }
         );
@@ -37,18 +29,14 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', function () {
 
-        var target = grunt.option('target') || DEVELOPMENT;
-        var tag = grunt.option('tag') || +new Date();
-
+        var target = grunt.option('target') || 'development';
         grunt.config('target', target);
-        grunt.config('tag', tag);
-
         grunt.task.run(target);
 
     });
 
     grunt.registerTask('development', ['buildTemplates']);
-    grunt.registerTask('staging', ['copy', 'cssmin', 'requirejs', 'buildTemplates']);
+    grunt.registerTask('production', ['copy', 'cssmin', 'requirejs', 'buildTemplates']);
 
 
 };
