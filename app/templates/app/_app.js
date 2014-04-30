@@ -31,17 +31,19 @@ define(function (require) {
         return defer.promise;
     });
 
-    app.on('initialize:after', function () {
+    app.on('initialize:after', function (options) {
 
-        app.request('bootstrap')
+        app
+            .request('bootstrap')
             .then(
-            function () {
-                if (!Backbone.history.start()) {
-                    Backbone.history.navigate('home', { trigger : true });
+                function () {
+                    if (!Backbone.history.start({ pushState : options.pushState })) {
+                        Backbone.history.navigate('home', { trigger : true });
+                    }
                 }
-            }
-        )
+            )
             .catch(app.logger.exception);
+
     });
 
     return app;

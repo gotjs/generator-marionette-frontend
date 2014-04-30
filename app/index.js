@@ -52,28 +52,30 @@ MarionetteFrontendGenerator.prototype.projectFiles = function projectFiles() {
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
     this.copy('jshintrc', '.jshintrc');
+    this.copy('gitignore', '.gitignore');
 
 };
 
 MarionetteFrontendGenerator.prototype.grunt = function projectFiles() {
+
     this.copy('_Gruntfile.js', 'Gruntfile.js');
-    this.directory('tasks', 'tasks');
+    this.mkdir('build');
+    this.directory('build/tasks', 'build/tasks');
 
 };
 
 MarionetteFrontendGenerator.prototype.config = function config() {
 
-    this.mkdir('config');
-    this.template('config/config.json', 'config/config.json');
-    this.copy('config/development.json', 'config/development.json');
-    this.copy('config/production.json', 'config/production.json');
+    this.mkdir('build/config');
+    this.template('build/config/config.json', 'build/config/config.json');
+    this.copy('build/config/development.json', 'build/config/development.json');
+    this.copy('build/config/production.json', 'build/config/production.json');
 
 };
 
 MarionetteFrontendGenerator.prototype.templates = function templates() {
 
-    this.mkdir('templates');
-    this.copy('templates/index.html.tmpl', 'templates/index.html.tmpl');
+    this.copy('build/index.html', 'build/index.html');
 
 };
 
@@ -93,7 +95,7 @@ MarionetteFrontendGenerator.prototype.modules = function plugins() {
 
     this.mkdir('app/modules');
 
-    this.invoke('marionette-frontend:module', { options: { module : 'home', autoload : true}}, function () {
+    this.invoke('marionette-frontend:module', { options: { module : 'home', autoload : false }}, function () {
         this.invoke('marionette-frontend:module', { options: { module : 'auth', predefined : true, autoload : true }}, cb);
     }.bind(this));
 };
@@ -103,10 +105,7 @@ MarionetteFrontendGenerator.prototype.modules = function plugins() {
 MarionetteFrontendGenerator.prototype.staticFiles = function staticFiles() {
 
     this.mkdir('static_files');
-    this.mkdir('static_files/img');
-
     this.copy('static_files/favicon.ico', 'static_files/favicon.ico');
-    this.copy('static_files/img/styles.css', 'static_files/img/styles.css');
 
 };
 

@@ -1,0 +1,9 @@
+{
+    "site" : {
+        "title": "expressible"
+    },
+    "paths": {
+        "staticFiles": ""
+    },
+    "pushState" : false
+}

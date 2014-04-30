@@ -1,7 +1,0 @@
-{
-    "browser": {
-        "paths": {
-            "staticFiles": "http://localhost:9001/production/static_files"
-        }
-    }
-}

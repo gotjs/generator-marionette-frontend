@@ -1,7 +1,7 @@
 module.exports = {
     production: {
         options: {
-            out                    : '<%- target %>/static_files/javascript/build.min.js',
+            out                    : 'build/dist/javascript/build.min.js',
             name                   : '../bower_components/requirejs/require',
             include                : 'bootstrap',
             mainConfigFile         : './app/settings.js',

@@ -1,19 +1,7 @@
 {
     "globals": {
         "define": false,
-        "require": false,
-        "phantom": false,
-        "module": false,
-        "io" : false,
-        "google" : false,
-
-        "describe" : false,
-        "it" : false,
-        "expect" : false,
-        "beforeEach" : false,
-        "afterEach" : false,
-        "sinon" : true,
-        "chai" : true
+        "require": false
     },
     "evil": true,
     "immed": true,

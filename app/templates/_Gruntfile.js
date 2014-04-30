@@ -19,10 +19,10 @@ module.exports = function (grunt) {
     var config = _.extend({}, {
         pkg: grunt.file.readJSON('package.json'),
         env: process.env
-    }, loadConfig('./tasks/options/'));
+    }, loadConfig('./build/tasks/options/'));
 
     grunt.initConfig(config);
-    grunt.loadTasks('tasks');
+    grunt.loadTasks('build/tasks');
     require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', [ 'jshint', 'build', 'connect']);

@@ -19,10 +19,10 @@ npm install -g generator-marionette-frontend
 ```
 mkdir example && cd example
 yo generator-marionette
-grunt
+grunt --target=development
 ```
 
-> Now go to http://localhost:9001/development/
+> Now go to http://localhost:9001
 
 ### Creating a new plugin
 
@@ -36,11 +36,12 @@ yo generator-marionette:plugin
 yo generator-marionette:module
 ```
 
-### Want to see how your site looks like in production?
+### Getting ready to go to production?
 ```
-grunt --target=staging
+grunt --target=production
 ```
-> Now go to http://localhost:9001/staging/
+> Now go to http://localhost:9001
+> Check out build/dist folder for a fully optimized site
 
 ### Directory structure
 
