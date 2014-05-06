@@ -3,19 +3,21 @@ module.exports = {
         options: {
             port: 9001,
             keepalive : true,
-            middleware: function (connect, options) {
+            middleware: function (connect) {
                 'use strict';
 
-                var grunt = require('grunt');
+                var modRewrite = require('connect-modrewrite');
+                var dir = 'frontend';
 
-                var target = grunt.config('target');
-                var dir = options.base;
-
+                var target = require('grunt').config('target');
                 if (target !== 'development') {
                     dir = 'build/dist';
                 }
 
                 return [
+                    modRewrite([
+                        '^[^\\.]*$ /index.html [L]'
+                    ]),
                     connect.static(dir),
                     connect.directory(dir)
                 ];

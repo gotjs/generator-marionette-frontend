@@ -13,14 +13,15 @@
 </head>
 <body lang="en">
 
-<span id="container"></span>
+    <span id="container"></span>
 
     <script>
         var application = <%= JSON.stringify(config) %>;
     </script>
-
     <% if(target == 'development') { %>
-    <script src="<%- config.paths.root %>/app/settings.js"></script>
+    <script>
+        var requirejs = <%= requirejs %>;
+    </script>
     <script data-main="<%- config.paths.root %>/app/bootstrap.js" src="<%- config.paths.root %>/bower_components/requirejs/require.js"></script>
     <% } else { %>
     <script src='<%- config.paths.staticFiles %>/javascript/build.min.js'></script>

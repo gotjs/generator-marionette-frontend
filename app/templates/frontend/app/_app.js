@@ -42,7 +42,7 @@ define(function (require) {
                     }
                 }
             )
-            .catch(app.logger.exception);
+            .catch(console.error);
 
     });
 

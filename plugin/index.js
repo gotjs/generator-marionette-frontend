@@ -45,10 +45,10 @@ PluginGenerator.prototype.askFor = function askFor() {
 
 PluginGenerator.prototype.generatePlugin = function generatePlugin() {
     if (!this.predefined) {
-        this.template('default.js', 'app/plugins/' + this.plugin + '.js');
+        this.template('default.js', 'frontend/app/plugins/' + this.plugin + '.js');
     }
     else {
-        this.copy('predefined/' + this.plugin + '.js', 'app/plugins/' + this.plugin + '.js');
+        this.copy('predefined/' + this.plugin + '.js', 'frontend/app/plugins/' + this.plugin + '.js');
     }
 
 };
@@ -60,12 +60,12 @@ PluginGenerator.prototype.generateAutoloader = function generateAutoloader() {
 
         var pluginStart = this.readFileAsString(path.join(__dirname, 'templates', '_pluginsStart.js'));
         var pluginEnd = this.readFileAsString(path.join(__dirname, 'templates', '_pluginsEnd.js'));
-        var files = fs.readdirSync(path.join(process.cwd(), 'app', 'plugins')).map(function (filename) {
+        var files = fs.readdirSync(path.join(process.cwd(), 'frontend', 'app', 'plugins')).map(function (filename) {
             return '    require(\'plugins/' + path.basename(filename, '.js') + '\')(app);';
         });
         var pluginAutoloader = pluginStart + files.join(os.EOL) + pluginEnd;
 
-        this.write('app/autoload/plugins.js', pluginAutoloader);
+        this.write('frontend/app/autoload/plugins.js', pluginAutoloader);
     }
 
 };

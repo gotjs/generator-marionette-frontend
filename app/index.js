@@ -33,40 +33,41 @@ MarionetteFrontendGenerator.prototype.askFor = function askFor() {
 
 MarionetteFrontendGenerator.prototype.app = function app() {
 
-    this.mkdir('app');
-    this.mkdir('app/components');
-    this.mkdir('app/utils');
-    this.mkdir('app/autoload');
+    this.mkdir('frontend');
+    this.mkdir('frontend/app');
+    this.mkdir('frontend/app/components');
+    this.mkdir('frontend/app/autoload');
 
-    this.copy('app/_app.js', 'app/app.js');
-    this.copy('app/_bootstrap.js', 'app/bootstrap.js');
-    this.copy('app/_vendors.js', 'app/vendors.js');
-    this.copy('app/_configuration.js', 'app/configuration.js');
-    this.copy('app/_settings.js', 'app/settings.js');
-    this.copy('app/_entities.js', 'app/entities.js');
+    this.copy('frontend/app/_app.js', 'frontend/app/app.js');
+    this.copy('frontend/app/_bootstrap.js', 'frontend/app/bootstrap.js');
+    this.copy('frontend/app/_vendors.js', 'frontend/app/vendors.js');
+    this.copy('frontend/app/_configuration.js', 'frontend/app/configuration.js');
+    this.copy('frontend/app/_settings.js', 'frontend/app/settings.js');
+    this.copy('frontend/app/_entities.js', 'frontend/app/entities.js');
+
+    this.copy('frontend/_bower.json', 'frontend/bower.json');
 
 };
 
 MarionetteFrontendGenerator.prototype.projectFiles = function projectFiles() {
 
     this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
     this.copy('jshintrc', '.jshintrc');
     this.copy('gitignore', '.gitignore');
+    this.copy('bowerrc', '.bowerrc');
+
 
 };
 
 MarionetteFrontendGenerator.prototype.grunt = function projectFiles() {
 
     this.copy('_Gruntfile.js', 'Gruntfile.js');
-    this.mkdir('build');
     this.directory('build/tasks', 'build/tasks');
 
 };
 
 MarionetteFrontendGenerator.prototype.config = function config() {
 
-    this.mkdir('build/config');
     this.template('build/config/config.json', 'build/config/config.json');
     this.copy('build/config/development.json', 'build/config/development.json');
     this.copy('build/config/production.json', 'build/config/production.json');
@@ -76,6 +77,7 @@ MarionetteFrontendGenerator.prototype.config = function config() {
 MarionetteFrontendGenerator.prototype.templates = function templates() {
 
     this.copy('build/index.html', 'build/index.html');
+    this.copy('build/requirejs.json', 'build/requirejs.json');
 
 };
 
@@ -83,17 +85,16 @@ MarionetteFrontendGenerator.prototype.plugins = function plugins() {
 
     var cb = this.async();
 
-    this.mkdir('app/plugins');
-    this.invoke('marionette-frontend:plugin', { options: { plugin : 'logger', predefined: true, autoload : false }}, function () {
-        this.invoke('marionette-frontend:plugin', { options: { plugin : 'navigate', predefined : true, autoload : true }}, cb);
-    }.bind(this));
+    this.mkdir('frontend/app/plugins');
+    this.invoke('marionette-frontend:plugin', { options: { plugin : 'navigate', predefined : true, autoload : true }}, cb);
+
 };
 
 MarionetteFrontendGenerator.prototype.modules = function plugins() {
 
     var cb = this.async();
 
-    this.mkdir('app/modules');
+    this.mkdir('frontend/app/modules');
 
     this.invoke('marionette-frontend:module', { options: { module : 'home', autoload : false }}, function () {
         this.invoke('marionette-frontend:module', { options: { module : 'auth', predefined : true, autoload : true }}, cb);
@@ -104,8 +105,8 @@ MarionetteFrontendGenerator.prototype.modules = function plugins() {
 
 MarionetteFrontendGenerator.prototype.staticFiles = function staticFiles() {
 
-    this.mkdir('static_files');
-    this.copy('static_files/favicon.ico', 'static_files/favicon.ico');
+    this.mkdir('frontend/static_files');
+    this.copy('frontend/static_files/favicon.ico', 'frontend/static_files/favicon.ico');
 
 };
 
