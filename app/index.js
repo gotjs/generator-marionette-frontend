@@ -42,7 +42,6 @@ MarionetteFrontendGenerator.prototype.app = function app() {
     this.copy('frontend/app/_bootstrap.js', 'frontend/app/bootstrap.js');
     this.copy('frontend/app/_vendors.js', 'frontend/app/vendors.js');
     this.copy('frontend/app/_configuration.js', 'frontend/app/configuration.js');
-    this.copy('frontend/app/_settings.js', 'frontend/app/settings.js');
     this.copy('frontend/app/_entities.js', 'frontend/app/entities.js');
 
     this.copy('frontend/_bower.json', 'frontend/bower.json');

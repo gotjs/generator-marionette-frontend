@@ -17,7 +17,7 @@ npm install -g generator-marionette-frontend
 
 ```
 mkdir example && cd example
-yo generator-marionette
+yo marionette-frontend
 grunt --target=development
 ```
 
