@@ -1,7 +1,7 @@
 generator-marionette-frontend
 ==============
 
-## Requierments
+## Requirements
 
 1. Node installed
 2. Yeoman installed (http://yeoman.io/)
