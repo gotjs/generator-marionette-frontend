@@ -1,5 +1,5 @@
 module.exports = {
-    all    : ['app/**/*.js'],
+    all    : ['frontend/app/**/*.js'],
     options: {
         jshintrc : '.jshintrc'
     }
