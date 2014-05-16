@@ -25,5 +25,5 @@ module.exports = function (grunt) {
     grunt.loadTasks('build/tasks');
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('default', [ 'jshint', 'build', 'connect']);
+    grunt.registerTask('default', [ 'jshint', 'build', 'connect', 'watch']);
 };

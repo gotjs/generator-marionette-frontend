@@ -1,7 +1,4 @@
 {
-    "site" : {
-        "title": "expressible"
-    },
     "paths": {
         "staticFiles": ""
     },

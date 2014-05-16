@@ -11,7 +11,7 @@ var PluginGenerator = module.exports = function PluginGenerator(args, options, c
 
     this.predefined = options.predefined;
     this.plugin = options.plugin;
-    this.autoload = options.autoload;
+    this.autoload = (options.autoload === undefined ? true : options.autoload);
 
 };
 util.inherits(PluginGenerator, yeoman.generators.Base);
@@ -25,18 +25,11 @@ PluginGenerator.prototype.askFor = function askFor() {
             {
                 name: 'plugin',
                 message: 'What do you want to call your plugin?'
-            },
-            {
-                type: 'confirm',
-                name: 'autoload',
-                message: 'Would you like to generate the plugin autoloader file?',
-                default: true
             }
         ];
 
         this.prompt(prompts, function (props) {
             this.plugin = props.plugin;
-            this.autoload = props.autoload;
             cb();
         }.bind(this));
 

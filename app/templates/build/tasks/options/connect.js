@@ -2,7 +2,6 @@ module.exports = {
     server: {
         options: {
             port: 9001,
-            keepalive : true,
             middleware: function (connect) {
                 'use strict';
 

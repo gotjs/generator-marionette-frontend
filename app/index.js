@@ -94,13 +94,9 @@ MarionetteFrontendGenerator.prototype.modules = function plugins() {
     var cb = this.async();
 
     this.mkdir('frontend/app/modules');
+    this.invoke('marionette-frontend:module', { options: { module : 'home', autoload : true }}, cb);
 
-    this.invoke('marionette-frontend:module', { options: { module : 'home', autoload : false }}, function () {
-        this.invoke('marionette-frontend:module', { options: { module : 'auth', predefined : true, autoload : true }}, cb);
-    }.bind(this));
 };
-
-
 
 MarionetteFrontendGenerator.prototype.staticFiles = function staticFiles() {
 

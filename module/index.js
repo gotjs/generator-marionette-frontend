@@ -11,7 +11,7 @@ var ModuleGenerator = module.exports = function ModuleGenerator(args, options, c
 
     this.predefined = options.predefined;
     this.module = options.module;
-    this.autoload = options.autoload;
+    this.autoload = (options.autoload === undefined ? true : options.autoload);
 
 };
 
@@ -26,19 +26,12 @@ ModuleGenerator.prototype.askFor = function askFor() {
             {
                 name: 'module',
                 message: 'What do you want to call your module?'
-            },
-            {
-                type: 'confirm',
-                name: 'autoload',
-                message: 'Would you like to generate the module autoloader file?',
-                default: true
             }
         ];
 
         this.prompt(prompts, function (props) {
 
             this.module = props.module;
-            this.autoload = props.autoload;
 
             cb();
         }.bind(this));
