@@ -5,5 +5,12 @@ module.exports = {
         options: {
             spawn: false
         }
+    },
+    tests: {
+        files: ['build/test-main.js', 'build/requirejs.json'],
+        tasks: ['buildTest'],
+        options: {
+            spawn: false
+        }
     }
 };

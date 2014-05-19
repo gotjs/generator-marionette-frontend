@@ -3,7 +3,13 @@
   "version": "1.1.0",
   "description": "A frontend generator for building large scale single page applications using Marionette, RequireJS, Handlebars",
   "keywords": [
-    "yeoman-generator", "marionette", "backbone", "underscore", "jquery", "handlebars", "when"
+    "yeoman-generator",
+    "marionette",
+    "backbone",
+    "underscore",
+    "jquery",
+    "handlebars",
+    "when"
   ],
   "homepage": "https://github.com/opus-online/generator-marionette-frontend",
   "bugs": "https://github.com/opus-online/generator-marionette-frontend/issues",
@@ -24,7 +30,16 @@
     "yeoman-generator": "~0.14.0"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
+    "grunt": "^0.4.5",
+    "grunt-karma": "^0.8.3",
+    "karma": "^0.12.16",
+    "karma-jasmine": "^0.1.5",
+    "karma-ng-html2js-preprocessor": "^0.1.0",
+    "karma-ng-scenario": "^0.1.0",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-requirejs": "^0.2.1",
+    "mocha": "~1.14.0",
+    "requirejs": "^2.1.11"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

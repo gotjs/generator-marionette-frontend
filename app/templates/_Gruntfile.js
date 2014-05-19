@@ -24,6 +24,15 @@ module.exports = function (grunt) {
     grunt.initConfig(config);
     grunt.loadTasks('build/tasks');
     require('load-grunt-tasks')(grunt);
+    grunt.loadNpmTasks('grunt-karma');
 
-    grunt.registerTask('default', [ 'jshint', 'build', 'connect', 'watch']);
+    /**
+     * Serves the application from localhost:9001
+     */
+    grunt.registerTask('serve', [ 'jshint', 'build', 'connect', 'watch']);
+    /**
+     * Runs the tests
+     */
+    grunt.registerTask('test', [ 'buildTest', 'karma' ]);
+
 };

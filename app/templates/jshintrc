@@ -1,7 +1,15 @@
 {
     "globals": {
         "define": false,
-        "require": false
+        "require": false,
+
+        "jasmine" : false,
+        "describe" : false,
+        "it" : false,
+        "expect" : false,
+        "beforeEach" : false,
+        "afterEach" : false,
+        "spyOn" : false
     },
     "evil": true,
     "immed": true,

@@ -58,6 +58,13 @@ MarionetteFrontendGenerator.prototype.projectFiles = function projectFiles() {
 
 };
 
+MarionetteFrontendGenerator.prototype.testing = function projectFiles() {
+
+    this.copy('_karma.conf.js', 'karma.conf.js');
+    this.directory('test', 'test');
+
+};
+
 MarionetteFrontendGenerator.prototype.grunt = function projectFiles() {
 
     this.copy('_Gruntfile.js', 'Gruntfile.js');
@@ -77,6 +84,7 @@ MarionetteFrontendGenerator.prototype.templates = function templates() {
 
     this.copy('build/index.html', 'build/index.html');
     this.copy('build/requirejs.json', 'build/requirejs.json');
+    this.copy('build/test-main.js', 'build/test-main.js');
 
 };
 
