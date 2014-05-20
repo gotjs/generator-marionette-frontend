@@ -7,7 +7,11 @@ grunt test
 
 ## Writing your tests
 
-We use [jasmine](http://jasmine.github.io/2.0/introduction.html) to write our tests. Requirejs is used to handle dependencies. Simply load in the item you're testing and write your test.
+* We use [jasmine](http://jasmine.github.io/2.0/introduction.html) to write our tests.
+* Requirejs is used to handle dependencies.
+* Karma runs the tests.
+
+Simply load in the item you're testing and write your test.
 
 **All tests should end with the filename "Spec.js", for example "appSpec.js"**
 ```javascript
