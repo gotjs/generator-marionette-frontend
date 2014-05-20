@@ -18,10 +18,19 @@ npm install -g generator-marionette-frontend
 ```
 mkdir example && cd example
 yo marionette-frontend
-grunt --target=development
 ```
 
+## Serving your application
+```
+grunt serve
+```
 Now go to [http://localhost:9001](http://localhost:9001)
+
+## Running your tests
+```
+grunt test
+```
+
 
 ## Documentation
 
@@ -29,3 +38,4 @@ Now go to [http://localhost:9001](http://localhost:9001)
 * [Everything to do with modules](docs/02_module.md)
 * [Everything to do with plugins](docs/03_plugin.md)
 * [Building your application](docs/04_building.md)
+* [Testing](docs/05_testing.md)

@@ -33,14 +33,15 @@ This folder will contain all of your public files (Javascript, CSS, images, font
 
 ### Build
 
-![Directory structure](http://puu.sh/8BvBr.png)
+![Directory structure](http://puu.sh/8TMfu.png)
 
 * config
     * config.json       - general configuration file
-    * development.json  - development specific configuration file, overwrites values at config.json
-    * production.json   - production specific configuration file, overwrites values at production.json
+    * development.json  - development specific configuration file, overwrites values at config.json if target==development
+    * production.json   - production specific configuration file, overwrites values at config.json if target==production
 * tasks
     * options           - grunt options split by plugin
     * build.js          - the grunt build process
 * index.html            - the template for the index.html file, this file will be used to create a new index.html every time you run grunt
 * requirejs.json        - the template for the requirejs configuration, this file will be used to create a new requirejs configuration every time you run grunt
+* test-main.js          - the template for building the main test file for karma
