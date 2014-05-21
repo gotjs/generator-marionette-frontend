@@ -8,7 +8,7 @@ define(function (require) {
 
             var deferred = when.defer();
             deferred.resolve({
-                authorized : localStorage.getItem('authorized') === 'true'
+                'id' : 1
             });
             return deferred.promise;
         }

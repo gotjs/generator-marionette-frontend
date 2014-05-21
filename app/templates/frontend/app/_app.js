@@ -3,47 +3,57 @@ define(function (require) {
 
     var Backbone = require('backbone');
     var Marionette = require('marionette');
-    var when = require('when/when');
-
     var entities = require('entities');
+
+    /**
+     * Will be initialized after the plugins are loaded
+     * @type {SimpleLogger|Logger|*}
+     */
+    var logger;
 
     /**
      * @type {Marionette.Application}
      */
     var app = new Marionette.Application();
 
-    app.addRegions({ 'container' : '#container' });
+    app.addRegions({
+        'header' : '#header',
+        'container' : '#container'
+    });
 
-    app.reqres.setHandler('bootstrap', function () {
+    /**
+     * Plugins auto-loaded, we have access to Lumberman
+     */
+    app.on('plugins:loaded', function () {
+        logger = app.lumberman.getLogger('application');
+    });
 
-        var defer = when.defer();
-
+    /**
+     * Modules auto-loaded, we should bootstrap our application and start the modules
+     */
+    app.on('modules:loaded', function () {
         entities
             .getBootstrapData()
             .then(
-            function (data) {
-                app.bootstrap = data;
-                defer.resolve(data);
-            },
-            defer.reject
-        );
+                function (data) {
+                    app.options = window.application;
+                    app.bootstrap = data;
+                    app.start(app.options);
 
-        return defer.promise;
-    });
-
-    app.on('initialize:after', function (options) {
-
-        app
-            .request('bootstrap')
-            .then(
-                function () {
-                    if (!Backbone.history.start({ pushState : options.pushState })) {
-                        Backbone.history.navigate('home', { trigger : true });
-                    }
                 }
             )
-            .catch(console.error);
+            .catch(function (error) {
+                logger.exception(error);
+            });
+    });
 
+    /**
+     * After bootstrapping is done and all modules are started we should start the routers
+     */
+    app.on('initialize:after', function (options) {
+        if (!Backbone.history.start({ pushState : options.pushState })) {
+            Backbone.history.navigate('home', { trigger : true });
+        }
     });
 
     return app;

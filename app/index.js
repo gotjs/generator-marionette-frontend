@@ -93,7 +93,9 @@ MarionetteFrontendGenerator.prototype.plugins = function plugins() {
     var cb = this.async();
 
     this.mkdir('frontend/app/plugins');
-    this.invoke('marionette-frontend:plugin', { options: { plugin : 'navigate', predefined : true, autoload : true }}, cb);
+    this.invoke('marionette-frontend:plugin', { options: { plugin : 'navigate', predefined : true, autoload : false }}, function () {
+        this.invoke('marionette-frontend:plugin', { options: { plugin : 'logger', predefined : true, autoload : true }}, cb);
+    }.bind(this));
 
 };
 

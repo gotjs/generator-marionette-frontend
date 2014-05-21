@@ -7,6 +7,6 @@ define(function (require) {
      * Generally used for jquery extensions that should be available globally
      */
 
-    app.trigger('plugins:loaded');
+    app.trigger('vendors:loaded');
 
 });

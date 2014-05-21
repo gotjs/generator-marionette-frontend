@@ -29,7 +29,7 @@ All the settings at ```build/config/production.json``` overwrite the general con
 Simply run
 
 ```
-grunt --target=production
+grunt serve --target=production
 ```
 
-We'll build an optimized site and store it in the ```build/dist/``` folder. We'll also start a webserver and serve the optimized site from [http://localhost:9001](http://localhost:9001). Now all you need to do is deploy your application somewhere.
+We'll build an optimized site and store it in the ```build/dist/``` folder. We'll also start a web server and serve the optimized site from [http://localhost:9001](http://localhost:9001). Now all you need to do is deploy your application somewhere.
