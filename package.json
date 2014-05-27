@@ -1,5 +1,5 @@
 {
-  "name": "generator-marioentte-frontend",
+  "name": "generator-marionette-frontend",
   "version": "1.2.0",
   "description": "A frontend generator for building large scale single page applications using Marionette, RequireJS, Handlebars",
   "keywords": [
