@@ -39,5 +39,6 @@ grunt test
 * [Starting your application](docs/01_application.md)
 * [Everything to do with modules](docs/02_module.md)
 * [Everything to do with plugins](docs/03_plugin.md)
-* [Building your application](docs/04_building.md)
-* [Testing](docs/05_testing.md)
+* [Everything to do with vendors](docs/04_vendor.md)
+* [Building your application](docs/05_building.md)
+* [Testing](docs/06_testing.md)

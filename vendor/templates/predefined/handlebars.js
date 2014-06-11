@@ -1,10 +1,10 @@
 define(function (require) {
     'use strict';
 
-    return function () {
+    var Handlebars = require('handlebars');
+    var Marionette = require('marionette');
 
-        var Handlebars = require('handlebars');
-        var Marionette = require('marionette');
+    return function () {
 
         /**
          * Handlebars setup
