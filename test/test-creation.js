@@ -27,8 +27,12 @@ describe('marionette-frontend generator', function () {
     before(function (done) {
 
         fixtureOut.capture(function onWrite() {
+            // Prevent original write
             return false;
         });
+
+        global.YEOMAN_MUTE = true;
+
         app = helpers.createGenerator('marionette-frontend:app', ['./plugin', './vendor', './module', './app']);
 
         var mockPrompts = {
@@ -46,10 +50,6 @@ describe('marionette-frontend generator', function () {
             app.run(done);
         };
         helpers.testDirectory(tempDir, runApp);
-    });
-
-    after(function () {
-        fixtureOut.release();
     });
 
     it('creates expected files', function () {
@@ -195,7 +195,6 @@ describe('marionette-frontend generator', function () {
 
 
     describe('Gruntfile', function () {
-
 
         var getGrunt = function () {
             var grunt = require(path.join(tempDir, 'node_modules/grunt'));
