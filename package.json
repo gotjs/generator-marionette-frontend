@@ -1,59 +1,66 @@
 {
-    "name": "generator-marionette-frontend",
-    "version": "1.3.0",
-    "description": "A frontend generator for building large scale single page applications using Marionette, RequireJS, Handlebars",
-    "keywords": [
-        "yeoman-generator",
-        "marionette",
-        "backbone",
-        "underscore",
-        "jquery",
-        "handlebars",
-        "when"
-    ],
-    "homepage": "https://github.com/opus-online/generator-marionette-frontend",
-    "bugs": "https://github.com/opus-online/generator-marionette-frontend/issues",
-    "author": {
-        "name": "Peeter Tomberg",
-        "email": "peeter.tomberg@gmail.com",
-        "url": "https://github.com/peeter-tomberg"
-    },
-    "main": "app/index.js",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/opus-online/generator-marionette-frontend.git"
-    },
-    "dependencies": {
-        "yeoman-generator": "^0.14.2"
-    },
-    "devDependencies": {
-        "blanket": "^1.1.6",
-        "coveralls": "^2.10.0",
-        "glob": "4.0.x",
-        "mocha": "*",
-        "jshint": "2.4.x",
-        "jshint-stylish": "0.1.x"
-    },
-    "peerDependencies": {
-        "yo": ">=1.0.0"
-    },
-    "engines": {
-        "node": ">=0.8.0",
-        "npm": ">=1.2.10"
-    },
-    "licenses": [
-        {
-            "type": "MIT"
-        }
-    ],
-    "scripts": {
-        "test": "mocha",
-        "coverage": "mocha --require blanket --reporter html-cov test/**/*.js > coverage.html",
-        "coveralls": "mocha --require blanket --reporter mocha-lcov-reporter test/**/*.js | coveralls"
-    },
-    "config": {
-        "blanket": {
-            "pattern": ["app/index.js", "module/index.js", "plugin/index.js", "vendor/index.js"]
-        }
+  "name": "generator-marionette-frontend",
+  "version": "1.3.0",
+  "description": "A frontend generator for building large scale single page applications using Marionette, RequireJS, Handlebars",
+  "keywords": [
+    "yeoman-generator",
+    "marionette",
+    "backbone",
+    "underscore",
+    "jquery",
+    "handlebars",
+    "when"
+  ],
+  "homepage": "https://github.com/opus-online/generator-marionette-frontend",
+  "bugs": "https://github.com/opus-online/generator-marionette-frontend/issues",
+  "author": {
+    "name": "Peeter Tomberg",
+    "email": "peeter.tomberg@gmail.com",
+    "url": "https://github.com/peeter-tomberg"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/opus-online/generator-marionette-frontend.git"
+  },
+  "dependencies": {
+    "fixture-stdout": "^0.2.1",
+    "yeoman-generator": "^0.14.2"
+  },
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "coveralls": "^2.10.0",
+    "fixture-stdout": "^0.2.1",
+    "glob": "4.0.x",
+    "jshint": "2.4.x",
+    "jshint-stylish": "0.1.x",
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
     }
+  ],
+  "scripts": {
+    "test": "mocha",
+    "coverage": "mocha --require blanket --reporter html-cov test/**/*.js > coverage.html",
+    "coveralls": "mocha --require blanket --reporter mocha-lcov-reporter test/**/*.js | coveralls"
+  },
+  "config": {
+    "blanket": {
+      "pattern": [
+        "app/index.js",
+        "module/index.js",
+        "plugin/index.js",
+        "vendor/index.js"
+      ]
+    }
+  }
 }

@@ -1,12 +1,23 @@
 /*global describe, before, it*/
 'use strict';
 
+/**
+ * Overwrite spawn function for tests. We need only stderr otherwise code coverage is messed.
+ */
+var oldSpawn = require('child_process').spawn;
+require('child_process').spawn = function (command, args, options) {
+    return oldSpawn(command, args, { stdio: ['pipe', 'pipe', process.stderr] });
+};
+
 var assert  = require('assert');
 var glob = require('glob');
 var helpers = require('yeoman-generator').test;
 var jshint = require('jshint/src/cli').run;
 var reporter = require('jshint-stylish').reporter;
 var path = require('path');
+var Fixture = require('fixture-stdout');
+
+var fixtureOut = new Fixture({  stream: process.stdout });
 
 describe('marionette-frontend generator', function () {
 
@@ -15,6 +26,9 @@ describe('marionette-frontend generator', function () {
 
     before(function (done) {
 
+        fixtureOut.capture(function onWrite() {
+            return false;
+        });
         app = helpers.createGenerator('marionette-frontend:app', ['./plugin', './vendor', './module', './app']);
 
         var mockPrompts = {
@@ -32,6 +46,10 @@ describe('marionette-frontend generator', function () {
             app.run(done);
         };
         helpers.testDirectory(tempDir, runApp);
+    });
+
+    after(function () {
+        fixtureOut.release();
     });
 
     it('creates expected files', function () {
@@ -187,6 +205,7 @@ describe('marionette-frontend generator', function () {
 
         before(function (done) {
             this.timeout(60000);
+
             app.installDependencies({
                 bower: true,
                 npm: true,
@@ -195,6 +214,7 @@ describe('marionette-frontend generator', function () {
                 }
             });
         });
+
 
         it('Should be able to run karma continuous tests', function (done) {
             this.timeout(30000);
