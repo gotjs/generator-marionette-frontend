@@ -51,12 +51,12 @@ PluginGenerator.prototype.generateAutoloader = function generateAutoloader() {
 
     if (this.autoload) {
 
-        var pluginStart = this.readFileAsString(path.join(__dirname, 'templates', '_pluginsStart.js'));
-        var pluginEnd = this.readFileAsString(path.join(__dirname, 'templates', '_pluginsEnd.js'));
+        var start = this.readFileAsString(path.join(__dirname, 'templates', 'autoload', 'start.js'));
+        var end = this.readFileAsString(path.join(__dirname, 'templates', 'autoload', 'end.js'));
         var files = fs.readdirSync(path.join(process.cwd(), 'frontend', 'app', 'plugins')).map(function (filename) {
-            return '    require(\'plugins/' + path.basename(filename, '.js') + '\')(app);';
+            return '        require(\'plugins/' + path.basename(filename, '.js') + '\')(app);';
         });
-        var pluginAutoloader = pluginStart + files.join(os.EOL) + pluginEnd;
+        var pluginAutoloader = start + files.join(os.EOL) + end;
 
         this.write('frontend/app/autoload/plugins.js', pluginAutoloader);
     }

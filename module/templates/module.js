@@ -1,41 +1,42 @@
 define(function (require) {
     'use strict';
 
-    var app = require('app');
+    var Controller = require('./controller');
+    var Router = require('./router');
 
-    var Marionette = require('marionette');
+    return function (app) {
 
-    var entities = require('./entities');
-    var helpers = require('./helpers');
-    var controller = require('./controller');
+        app.module('<%- module %>', function () {
 
-    /**
-     * Routers
-     */
-    var Router = Marionette.AppRouter.extend({
+            /**
+             * This modules logger
+             * @type {SimpleLogger|Logger|*}
+             */
+            this.logger = app.lumberman.getLogger('<%- module %>');
 
-        appRoutes: {
-            '<%- module %>' : 'index'
-        },
-        controller : {
-            index : function () {
-                app.execute('navigate:<%- module %>');
-            }
-        }
-    });
+            /**
+             * This modules controller
+             * @type {*|exports}
+             */
+            var controller = this.controller = new Controller({ app : app, logger : this.logger });
 
-    /**
-     * Commands
-     */
-    app.commands.setHandler('navigate:<%- module %>', function () {
-        controller.index();
-        app.navigate('<%- module %>');
-    });
+            /**
+             * This modules router
+             * @type {Router}
+             */
+            var router = this.router = new Router({ controller : this.controller });
 
-    return {
-        entities: entities,
-        controllers: controller,
-        router: new Router(),
-        helpers : helpers
+            /**
+             * Commands, basically this modules "public api".
+             */
+            app.commands.setHandler('navigate:<%- module %>', function () {
+                controller.index();
+                router.navigate('<%- module %>');
+            });
+
+        });
+
+
     };
+
 });

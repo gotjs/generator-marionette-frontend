@@ -1,18 +1,20 @@
 define(function (require) {
     'use strict';
 
-    var app = require('app');
+    var Marionette = require('marionette');
     var IndexView = require('./views/index');
 
-    var controller = {
-        index : function () {
-            var view = new IndexView({
-                template : require('text!./templates/index.hbs'),
-                message : 'Welcome to the module <%- module %>'
-            });
-            app.container.show(view);
-        }
-    };
+    return Marionette.Controller.extend({
 
-    return controller;
+        initialize: function (options) {
+            this.app = options.app;
+            this.logger = options.logger;
+        },
+        index : function () {
+            this.app.container.show(new IndexView({
+                message : 'Hello!'
+            }));
+        }
+    });
+
 });

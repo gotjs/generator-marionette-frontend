@@ -1,6 +1,8 @@
 generator-marionette-frontend
 ==============
 
+[ ![Codeship Status for opus-online/generator-marionette-frontend](https://codeship.io/projects/cbba6960-d398-0131-4a37-6646b25ab930/status?branch=master)](https://codeship.io/projects/23484)
+
 ## Requirements
 
 1. Node installed

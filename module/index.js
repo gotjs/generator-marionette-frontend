@@ -44,15 +44,11 @@ ModuleGenerator.prototype.generateModule = function generateModule() {
     if (!this.predefined) {
         this.mkdir('frontend/app/modules/' + this.module);
 
-        this.template('module.js', 'frontend/app/modules/' + this.module + '/' + this.module + 'Module.js');
+        this.template('module.js', 'frontend/app/modules/' + this.module + '/module.js');
         this.copy('controller.js', 'frontend/app/modules/' + this.module + '/controller.js');
-        this.copy('helpers.js', 'frontend/app/modules/' + this.module + '/helpers.js');
-        this.copy('entities.js', 'frontend/app/modules/' + this.module + '/entities.js');
+        this.copy('router.js', 'frontend/app/modules/' + this.module + '/router.js');
 
-        this.mkdir('frontend/app/modules/' + this.module + '/templates');
         this.copy('templates/index.hbs', 'frontend/app/modules/' + this.module + '/templates/index.hbs');
-
-        this.mkdir('frontend/app/modules/' + this.module + '/views');
         this.copy('views/index.js', 'frontend/app/modules/' + this.module + '/views/index.js');
     }
     else {
@@ -71,7 +67,7 @@ ModuleGenerator.prototype.generateAutoloader = function generateAutoloader() {
         var start = this.readFileAsString(path.join(__dirname, 'templates', 'autoload', 'start.js'));
         var end = this.readFileAsString(path.join(__dirname, 'templates', 'autoload', 'end.js'));
         var files = fs.readdirSync(path.join(process.cwd(), 'frontend', 'app', 'modules')).map(function (dirName) {
-            return '    require(\'modules/' + dirName + '/' + dirName + 'Module\');';
+            return '        require(\'modules/' + dirName + '/module\')(app);';
         });
         var autoloader = start + files.join(os.EOL) + end;
 
