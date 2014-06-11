@@ -1,6 +1,6 @@
 module.exports = {
     scripts: {
-        files: ['build/index.html', 'build/requirejs.json'],
+        files: ['build/index.html', 'build/requirejs.json', 'build/config/config.json', 'build/config/development.json',  'build/config/production.json'],
         tasks: ['build'],
         options: {
             spawn: false

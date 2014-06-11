@@ -1,6 +1,6 @@
 {
     "paths": {
-        "staticFiles": ""
+        "staticFiles": "static_files"
     },
     "pushState" : false
 }

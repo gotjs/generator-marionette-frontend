@@ -197,12 +197,12 @@ describe('marionette-frontend generator', function () {
         });
 
         it('Should be able to run karma continuous tests', function (done) {
-            this.timeout(30000);
+            this.timeout(60000);
             getGrunt().tasks(['test:continuous'], {}, done);
         });
 
         it('Should be able to build the site', function (done) {
-            this.timeout(30000);
+            this.timeout(60000);
             getGrunt().tasks(['build'], { target : 'production' }, function (error) {
                 helpers.assertFile('build/dist/index.html');
                 helpers.assertFile('build/dist/javascript/build.min.js');
