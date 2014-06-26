@@ -5,7 +5,7 @@ module.exports = {
     production: {
         options: {
             baseUrl                : './frontend/app/',
-            out                    : 'build/dist/javascript/build.min.js',
+            out                    : 'build/dist/static_files/javascript/build.min.js',
             name                   : '../bower_components/requirejs/require',
             include                : 'bootstrap',
             mainConfigFile         : path.join(os.tmpdir(), 'generator_marionette_frontend_require.js'),

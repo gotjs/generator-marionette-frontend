@@ -223,9 +223,9 @@ describe('marionette-frontend generator', function () {
         it('Should be able to build the site', function (done) {
             this.timeout(30000);
             getGrunt().tasks(['build'], { target : 'production' }, function (error) {
-                helpers.assertFile('build/dist/index.html');
-                helpers.assertFile('build/dist/javascript/build.min.js');
-                helpers.assertFile('build/dist/javascript/build.min.js.map');
+                helpers.assertFile('build/dist/index.html', /<script src="static_files\/javascript\/build.min.js"><\/script>/);
+                helpers.assertFile('build/dist/static_files/javascript/build.min.js');
+                helpers.assertFile('build/dist/static_files/javascript/build.min.js.map');
                 helpers.assertFile('build/dist/static_files/favicon.ico');
                 done(error);
             });

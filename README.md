@@ -2,7 +2,7 @@ generator-marionette-frontend
 ==============
 
 [ ![Codeship Status for opus-online/generator-marionette-frontend](https://codeship.io/projects/cbba6960-d398-0131-4a37-6646b25ab930/status?branch=master)](https://codeship.io/projects/23484)
-[![Coverage Status](https://coveralls.io/repos/opus-online/generator-marionette-frontend/badge.png)](https://coveralls.io/r/opus-online/generator-marionette-frontend)
+
 
 ## Requirements
 
@@ -43,3 +43,8 @@ grunt test
 * [Everything to do with vendors](docs/04_vendor.md)
 * [Building your application](docs/05_building.md)
 * [Testing](docs/06_testing.md)
+
+## Community
+
+You can contact me via Gitter: 
+[![Gitter chat](https://badges.gitter.im/opus-online/generator-marionette-frontend.png)](https://gitter.im/opus-online/generator-marionette-frontend)
