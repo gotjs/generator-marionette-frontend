@@ -25,7 +25,7 @@ yo marionette-frontend
 
 ## Serving your application
 ```
-grunt
+grunt serve
 ```
 Now go to [http://localhost:9001](http://localhost:9001)
 
