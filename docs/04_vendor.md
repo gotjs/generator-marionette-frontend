@@ -36,7 +36,7 @@ define(function (require) {
 To scaffold out a new vendor simply open your console and type
 
 ```
-yo generator-marionette:vendor
+yo generator-marionette-frontend:vendor
 ```
 
 The vendor will be created in the folder frontend/app/vendors
