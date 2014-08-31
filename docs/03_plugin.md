@@ -40,7 +40,7 @@ define(function (require) {
 To scaffold out a new plugin simply open your console and type
 
 ```
-yo generator-marionette:plugin
+yo generator-marionette-frontend:plugin
 ```
 
 The plugin will be created in the folder frontend/app/plugins
