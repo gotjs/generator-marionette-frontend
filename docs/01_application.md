@@ -4,7 +4,7 @@
 To scaffold out a new application simply open your directory, navigate to an empty folder and type
 
 ```
-yo generator-marionette
+yo generator-marionette-frontend
 ```
 
 Once the command finishes you'll have the following directory structure:
