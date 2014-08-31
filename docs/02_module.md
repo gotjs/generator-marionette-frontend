@@ -27,7 +27,7 @@ We have modules for every section of our application, for example: "home", "auth
 To scaffold out a new module simply open your console and type
 
 ```
-yo generator-marionette:module
+yo generator-marionette-frontend:module
 ```
 
 The module will be created in the folder frontend/app/modules
