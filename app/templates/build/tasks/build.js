@@ -56,7 +56,6 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('development', ['buildTemplates']);
-    grunt.registerTask('production', ['copy', 'buildRequirejsConfig', 'requirejs', 'buildTemplates']);
-
+    grunt.registerTask('production', ['clean', 'copy', 'buildRequirejsConfig', 'requirejs', 'buildTemplates', 'filerev']);
 
 };

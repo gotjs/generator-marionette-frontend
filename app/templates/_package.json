@@ -6,13 +6,18 @@
         "glob": "3.2.9",
         "grunt": "0.4.4",
         "grunt-contrib-concat": "0.4.0",
+		"grunt-contrib-clean": "^0.5.0",
         "grunt-contrib-connect": "0.7.1",
         "grunt-contrib-copy": "0.5.0",
 		"grunt-contrib-cssmin": "^0.10.0",
         "grunt-contrib-jshint": "0.10.0",
         "grunt-contrib-requirejs": "0.4.3",
         "grunt-contrib-watch": "0.6.1",
+		"grunt-filerev": "^2.1.2",
         "grunt-karma": "0.8.3",
+		"grunt-usemin": "^2.6.2",
+		"grunt-wiredep": "^2.2.0",
+		"jshint-stylish": "^1.0.0",
         "karma": "0.12.16",
         "karma-jasmine": "0.1.5",
         "karma-phantomjs-launcher": "0.1.4",
@@ -20,8 +25,8 @@
         "load-grunt-tasks": "0.3.0",
         "lodash": "2.4.1",
         "nconf": "0.6.9",
-		"time-grunt": "^1.0.0",
-        "requirejs": "^2.1.11"
+        "requirejs": "^2.1.11",
+		"time-grunt": "^1.0.0"
     },
     "scripts": {
         "test": "grunt test:continuous"

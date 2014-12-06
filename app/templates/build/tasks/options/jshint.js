@@ -1,6 +1,14 @@
 module.exports = {
-    all    : ['frontend/app/**/*.js'],
+    all    : [
+		'Gruntfile.js',
+		'frontend/app/**/*.js'
+	],
     options: {
-        jshintrc : '.jshintrc'
-    }
+        jshintrc : '.jshintrc',
+		reporter: require('jshint-stylish')
+    },
+	test: {
+		src: ['test/unit/{,*/}*.js']
+	}
+
 };
