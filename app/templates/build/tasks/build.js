@@ -6,16 +6,14 @@ module.exports = function (grunt) {
     var os = require('os');
 
     var buildRequirejsConfig = function () {
-
         var requirejsTemplate = grunt.file.read('build/requirejs.json');
         return grunt.template.process(requirejsTemplate, { data : { path : '../' }});
-
     };
 
     var getIndexPath = function () {
         var indexPath = 'frontend/index.html';
         if (grunt.config('target') !== 'development') {
-            indexPath = 'build/dist/index.html';
+           indexPath = 'build/dist/index.html';
         }
         return indexPath;
     };
@@ -48,14 +46,29 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', function () {
-
         var target = grunt.option('target') || 'development';
         grunt.config('target', target);
         grunt.task.run(target);
 
     });
 
-    grunt.registerTask('development', ['buildTemplates']);
-    grunt.registerTask('production', ['clean', 'copy', 'buildRequirejsConfig', 'requirejs', 'buildTemplates', 'filerev']);
+    grunt.registerTask('development', [
+		'buildTemplates',
+		'compass',
+		'wiredep'
+	]);
 
+    grunt.registerTask('production', [
+		'clean',
+		'compass',
+		'wiredep',
+		'useminPrepare',
+		'copy',
+		'buildRequirejsConfig',
+		'requirejs',
+		'buildTemplates',
+		'filerev',
+		'usemin'
+	]);
 };
+

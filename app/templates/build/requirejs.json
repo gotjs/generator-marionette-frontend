@@ -3,6 +3,7 @@
         "jquery": "<%= path %>bower_components/jquery/dist/jquery",
         "underscore": "<%= path %>bower_components/underscore/underscore",
         "backbone": "<%= path %>bower_components/backbone/backbone",
+        "bootstrap": "<%= path %>bower_components/sass-bootstrap/dist/js/bootstrap",
         "marionette": "<%= path %>bower_components/backbone.marionette/lib/core/amd/backbone.marionette",
         "backbone.babysitter": "<%= path %>bower_components/backbone.babysitter/lib/backbone.babysitter",
         "backbone.wreqr": "<%= path %>bower_components/backbone.wreqr/lib/backbone.wreqr",
@@ -12,6 +13,10 @@
         "Lumberman" : "<%= path %>bower_components/lumberman/src"
     },
     "shim": {
+		"bootstrap" : {
+			"deps" : ["jquery"],
+			"exports" : "jquery"
+		},
         "handlebars" : {
             "exports": "Handlebars"
         }

@@ -1,2 +1,6 @@
 {
+	"paths": {
+		"staticFiles": "static_files"
+	}
+
 }

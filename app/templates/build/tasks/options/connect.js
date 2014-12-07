@@ -1,26 +1,45 @@
+// connect.js
+
 module.exports = {
-    server: {
-        options: {
-            port: 9001,
-            middleware: function (connect) {
-                'use strict';
+	server: {
+		options: {
+			port: 9001,
+			livereload: 35729,
+			middleware: function (connect) {
+				'use strict';
 
-                var modRewrite = require('connect-modrewrite');
-                var dir = 'frontend';
+				var modRewrite = require('connect-modrewrite');
+				var dir = 'frontend';
 
-                var target = require('grunt').config('target');
-                if (target !== 'development') {
-                    dir = 'build/dist';
-                }
+				var target = require('grunt').config('target');
+				if (target !== 'development') {
+				    dir = 'build/dist';
+				}
 
-                return [
-                    modRewrite([
-                        '^[^\\.]*$ /index.html [L]'
-                    ]),
-                    connect.static(dir),
-                    connect.directory(dir)
-                ];
-            }
-        }
-    }
-};
+				return [
+				    modRewrite([
+				        '^[^\\.]*$ /index.html [L]'
+				    ]),
+				    connect.static(dir),
+				    connect.directory(dir),
+				    connect.static('.tmp'),
+				];
+			}
+		},
+		livereload: {
+			options: {
+				open: true,
+				middleware: function (connect) {
+				  return [
+				    connect.static('.tmp'),
+				    connect().use(
+				      '/bower_components',
+				      connect.static('./bower_components')
+				    ),
+				    connect.static('frontend/app')
+				  ];
+				}
+			}
+		}
+	}
+}
