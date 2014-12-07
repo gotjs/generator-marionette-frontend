@@ -11,8 +11,8 @@
     "handlebars",
     "when"
   ],
-  "homepage": "https://github.com/krave-n/generator-marionette-frontend",
-  "bugs": "https://github.com/krave-n/generator-marionette-frontend/issues",
+  "homepage": "https://github.com/gotjs/generator-marionette-frontend",
+  "bugs": "https://github.com/gotjs/generator-marionette-frontend/issues",
   "author": {
     "name": "Peeter Tomberg",
     "email": "peeter.tomberg@gmail.com",
@@ -21,7 +21,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/krave-n/generator-marionette-frontend.git"
+    "url": "git://github.com/gotjs/generator-marionette-frontend.git"
   },
   "dependencies": {
     "yeoman-generator": "^0.14.2"
