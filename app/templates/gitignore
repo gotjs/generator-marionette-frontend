@@ -2,3 +2,4 @@ node_modules/
 frontend/bower_components/
 frontend/index.html
 test/unit/test-main.js
+.saas-cache/
