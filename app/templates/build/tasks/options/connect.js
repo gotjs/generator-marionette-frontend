@@ -17,12 +17,14 @@ module.exports = {
 				}
 
 				return [
-				    modRewrite([
-				        '^[^\\.]*$ /index.html [L]'
-				    ]),
-				    connect.static(dir),
-				    connect.directory(dir),
-				    connect.static('.tmp'),
+					modRewrite([ '^[^\\.]*$ /index.html [L]' ]),
+					connect.static(dir),
+					connect.directory(dir),
+					connect.static('.tmp'),
+					connect().use(
+					  '/bower_components',
+					  connect.static('./bower_components')
+					)
 				];
 			}
 		},
@@ -40,6 +42,23 @@ module.exports = {
 				  ];
 				}
 			}
+		},
+		test: {
+			options: {
+			  port: 9001,
+			  middleware: function (connect) {
+			    return [
+			      connect.static('.tmp'),
+			      connect.static('test'),
+			      connect().use(
+			        '/bower_components',
+			        connect.static('./bower_components')
+			      ),
+			      connect.static('frontend/app')
+			    ];
+			  }
+			}
 		}
 	}
 }
+

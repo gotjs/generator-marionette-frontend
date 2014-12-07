@@ -6,7 +6,7 @@ module.exports = {
 	app: {
 		src: ['build/index.html'],
 		cwd: 'frontend',
-		exclude: [ /jquery/, 'bower_components/modernizr/modernizr.js' ],
+		exclude: [ /jquery/, 'bower_components/modernizer/modernizr.js' ],
 		ignorePath: '\.\./frontend/',
 		sass: {
 			src: ['frontend/static_files/styles/{,*/}*.{scss,sass}'],
@@ -14,4 +14,5 @@ module.exports = {
 		}
 	}
 }
+
 

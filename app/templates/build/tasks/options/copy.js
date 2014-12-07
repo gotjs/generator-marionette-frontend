@@ -17,6 +17,12 @@ module.exports = {
 			cwd: '.tmp/images',
 			dest: 'build/dist/images',
 			src: ['generated/*']
+		},
+		{
+			expand: true,
+			cwd: '.',
+			src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+			dest: 'build/dist'
 		}
 		]
 	},
@@ -30,3 +36,4 @@ module.exports = {
 		]
 	}
 };
+
