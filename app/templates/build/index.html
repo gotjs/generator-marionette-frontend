@@ -19,6 +19,10 @@
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
+	<!-- build:js(.) scripts/vendor.js -->
+	<script src="bower_components/modernizer/modernizr.js"></script>
+	<!-- endbuild -->
+
 </head>
 <body lang="en">
 	<span id="header"></span>
@@ -33,7 +37,7 @@
 		<script>
 			var requirejs = <%= requirejs %>;
 		</script>
-		<script data-main="<%- config.paths.root %>/app/main.js" src="<%- config.paths.root %>/bower_components/requirejs/require.js"></script>
+		<script data-main="<%- config.paths.root %>app/main.js" src="<%- config.paths.root %>bower_components/requirejs/require.js"></script>
 	<% } else { %>
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
@@ -46,9 +50,6 @@
 			</script>
 		<script src="<%- config.paths.staticFiles %>/javascript/build.min.js"></script>
 	<% } %>
-
-	<!-- build:js(.) scripts/vendor.js -->
-	<!-- endbuild -->
-
 </body>
 </html>
+

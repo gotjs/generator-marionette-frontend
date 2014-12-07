@@ -1,6 +1,6 @@
 {
-  "name": "marionette-basic",
-  "version": "0.1.0",
+  "name": "curate",
+  "version": "0.0.0",
   "devDependencies": {
     "connect-modrewrite": "0.6.4",
     "glob": "3.2.9",
@@ -37,4 +37,3 @@
     "test": "grunt test:continuous"
   }
 }
-

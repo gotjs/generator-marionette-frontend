@@ -1,4 +1,4 @@
-require(['app'], function (app) {
+require(['app', 'jquery','backbone', 'bootstrap'], function (app ) {
     'use strict';
 
     /**
