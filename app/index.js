@@ -38,7 +38,7 @@ MarionetteFrontendGenerator.prototype.app = function app() {
     this.mkdir('frontend/app/components');
 
     this.copy('frontend/app/app.js', 'frontend/app/app.js');
-    this.copy('frontend/app/bootstrap.js', 'frontend/app/bootstrap.js');
+    this.copy('frontend/app/main.js', 'frontend/app/main.js');
     this.copy('frontend/_bower.json', 'frontend/bower.json');
 
 };
