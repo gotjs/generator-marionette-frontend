@@ -3,8 +3,6 @@ module.exports = function (grunt) {
 
 	var buildRequirejsConfig = function () {
 		var requirejsTemplate = grunt.file.read('build/requirejs.json');
-		//json uses double quotes, and we are using single quotes for all js
-		requirejsTemplate = requirejsTemplate.replace("\"", "'")
 		return grunt.template.process(requirejsTemplate, { data : { path : '../' }});
 	};
 
@@ -13,6 +11,9 @@ module.exports = function (grunt) {
 
 		var data = { requirejs : buildRequirejsConfig() };
 		var processedIndex = grunt.template.process(testMainTemplate, { data : data });
+		//json uses double quotes, and we are using single quotes for all js
+		processedIndex = processedIndex.replace(/\"/gi, "'")
 		grunt.file.write('test/unit/test-main.js', processedIndex);
 	});
 };
+
